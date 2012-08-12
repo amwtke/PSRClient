@@ -1,0 +1,214 @@
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\bin\Debug\APP.exe.config
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\bin\Debug\APP.exe
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\bin\Debug\APP.pdb
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\bin\Debug\Db4objects.Db4o.dll
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\bin\Debug\Db4objects.Db4o.xml
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.csprojResolveAssemblyReference.cache
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.AddUser.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.LoginForm.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.MainForm.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.Properties.Resources.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.AddAuthorizationTree.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.AddNodeForm.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.AddUIInform.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.AdminForm.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.Tab1_AddAffectForm.resources
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.csproj.GenerateResource.Cache
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.exe.licenses
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.exe
+C:\Users\xiaojin\Documents\Visual Studio 2010\Projects\APP\APP\obj\x86\Debug\APP.pdb
+C:\Users\Administrator\Desktop\APP\APP\bin\Debug\APP.exe.config
+C:\Users\Administrator\Desktop\APP\APP\obj\x86\Debug\APP.exe
+C:\Users\Administrator\Desktop\APP\APP\obj\x86\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\bin\Debug\APP.exe.config
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.exe
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\bin\Debug\APP.exe
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\bin\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\bin\Debug\Db4objects.Db4o.dll
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\bin\Debug\Db4objects.Db4o.xml
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.csprojResolveAssemblyReference.cache
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.AddUser.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.LoginForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.MainForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.Properties.Resources.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.AddAuthorizationTree.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.AddNodeForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.AddUIInform.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.AdminForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.Tab1_AddAffectForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.csproj.GenerateResource.Cache
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.exe.licenses
+=======
+E:\project\PSR\APP\bin\Debug\APP.exe.config
+E:\project\PSR\APP\obj\x86\Debug\APP.exe
+E:\project\PSR\APP\obj\x86\Debug\APP.pdb
+E:\project\PSR\APP\bin\Debug\APP.exe
+E:\project\PSR\APP\bin\Debug\APP.pdb
+E:\project\PSR\APP\bin\Debug\Db4objects.Db4o.xml
+E:\project\PSR\APP\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\project\PSR\APP\obj\x86\Debug\APP.AddUser.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.LoginForm.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.MainForm.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.Properties.Resources.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.AddAuthorizationTree.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.AddNodeForm.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.AddUIInform.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.AdminForm.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.RecordQuery.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.Tab1_AddAffectForm.resources
+E:\project\PSR\APP\obj\x86\Debug\APP.csproj.GenerateResource.Cache
+E:\project\PSR\APP\obj\x86\Debug\APP.exe.licenses
+E:\project\PSR\APP\obj\x86\Debug\APP.CheckRecord.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.CheckRecord.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.RecordQuery.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\PSAR\obj\x86\Debug\APP.Comment.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\bin\Debug\APP.exe.config
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.exe
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\bin\Debug\APP.exe
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\bin\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\bin\Debug\Db4objects.Db4o.dll
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\bin\Debug\Db4objects.Db4o.xml
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.csprojResolveAssemblyReference.cache
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.AddUser.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.LoginForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.UserInfo.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.MainForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.Properties.Resources.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.AddAuthorizationTree.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.AddNodeForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.AddUIInform.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.AdminForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.CheckRecord.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.Comment.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.ImportUserAndStatusForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.RecordQuery.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.Tab1_AddAffectForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.csproj.GenerateResource.Cache
+E:\WORKSHOP\13 iFS 西门子\xiangmu\svn\svn\obj\x86\Debug\APP.exe.licenses
+E:\work\xiangmu\prs-V2\bin\Debug\APP.exe.config
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.exe
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.pdb
+E:\work\xiangmu\prs-V2\bin\Debug\APP.exe
+E:\work\xiangmu\prs-V2\bin\Debug\APP.pdb
+E:\work\xiangmu\prs-V2\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\work\xiangmu\prs-V2\bin\Debug\Microsoft.Office.Interop.Word.dll
+E:\work\xiangmu\prs-V2\bin\Debug\office.dll
+E:\work\xiangmu\prs-V2\bin\Debug\Microsoft.Vbe.Interop.dll
+E:\work\xiangmu\prs-V2\bin\Debug\Db4objects.Db4o.xml
+E:\work\xiangmu\prs-V2\bin\Debug\Microsoft.Office.Interop.Excel.xml
+E:\work\xiangmu\prs-V2\bin\Debug\Microsoft.Office.Interop.Word.xml
+E:\work\xiangmu\prs-V2\bin\Debug\office.xml
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.csprojResolveAssemblyReference.cache
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.AddUser.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.LoginForm.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.UserInfo.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.MainForm.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.Properties.Resources.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.AddAuthorizationTree.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.AddNodeForm.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.AddUIInform.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.AdminForm.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.CheckRecord.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.Comment.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.ImportUserAndStatusForm.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.RecordQuery.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.Tab1_AddAffectForm.resources
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.csproj.GenerateResource.Cache
+E:\work\xiangmu\prs-V2\obj\x86\Debug\APP.exe.licenses
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\bin\Debug\APP.exe.config
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.exe
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\bin\Debug\APP.exe
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\bin\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\bin\Debug\Db4objects.Db4o.dll
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\bin\Debug\Db4objects.Db4o.xml
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.csprojResolveAssemblyReference.cache
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.AddUser.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.LoginForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.UserInfo.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.MainForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.Properties.Resources.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.AddAuthorizationTree.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.AddNodeForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.AddUIInform.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.AdminForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.CheckRecord.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.Comment.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.ImportUserAndStatusForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.RecordQuery.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.Tab1_AddAffectForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.csproj.GenerateResource.Cache
+E:\WORKSHOP\13 iFS 西门子\xiangmu\prs-V2.5\obj\x86\Debug\APP.exe.licenses
+E:\work\PSR\psr\bin\Debug\APP.exe.config
+E:\work\PSR\psr\obj\x86\Debug\APP.exe
+E:\work\PSR\psr\obj\x86\Debug\APP.pdb
+E:\work\PSR\psr\bin\Debug\CSS\factshow.css
+E:\work\PSR\psr\bin\Debug\CSS\resultshow.css
+E:\work\PSR\psr\bin\Debug\APP.exe
+E:\work\PSR\psr\bin\Debug\APP.pdb
+E:\work\PSR\psr\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\work\PSR\psr\bin\Debug\Microsoft.Office.Interop.Word.dll
+E:\work\PSR\psr\bin\Debug\office.dll
+E:\work\PSR\psr\bin\Debug\Microsoft.Vbe.Interop.dll
+E:\work\PSR\psr\bin\Debug\Db4objects.Db4o.xml
+E:\work\PSR\psr\bin\Debug\Microsoft.Office.Interop.Excel.xml
+E:\work\PSR\psr\bin\Debug\Microsoft.Office.Interop.Word.xml
+E:\work\PSR\psr\bin\Debug\office.xml
+E:\work\PSR\psr\obj\x86\Debug\APP.csprojResolveAssemblyReference.cache
+E:\work\PSR\psr\obj\x86\Debug\APP.AddUser.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.LoginForm.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.UserInfo.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.MainForm.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.Properties.Resources.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.AddAuthorizationTree.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.AddNodeForm.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.AddUIInform.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.AdminForm.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.BigFactInputForm.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.CheckRecord.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.Comment.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.DashBoard.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.ImportUserAndStatusForm.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.KickBackForm.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.RecordQuery.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.Tab1_AddAffectForm.resources
+E:\work\PSR\psr\obj\x86\Debug\APP.csproj.GenerateResource.Cache
+E:\work\PSR\psr\obj\x86\Debug\APP.exe.licenses
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\APP.exe.config
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.exe
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\CSS\factshow.css
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\CSS\resultshow.css
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\template\approve.doc
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\template\record.doc
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\APP.exe
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\APP.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\Db4objects.Db4o.dll
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\MWCommon.dll
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\MWControls.dll
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\MWCommon.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\MWControls.pdb
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\bin\Debug\Db4objects.Db4o.xml
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.csprojResolveAssemblyReference.cache
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.AddUser.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.LoginForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.SelectUserForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.UserInfo.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.MainForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.Properties.Resources.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.AddAuthorizationTree.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.AddNodeForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.AddUIInform.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.AdminForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.BigFactInputForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.CheckRecord.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.Comment.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.DashBoard.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.ImportUserAndStatusForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.KickBackForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.RecordQuery.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.Tab1_AddAffectForm.resources
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.csproj.GenerateResource.Cache
+E:\WORKSHOP\13 iFS 西门子\xiangmu\New\obj\x86\Debug\APP.exe.licenses
