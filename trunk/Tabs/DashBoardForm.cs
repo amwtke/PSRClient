@@ -54,7 +54,7 @@ namespace APP
             if (_record != null && _record.ID != string.Empty)
             {
                 label_recordNo.Text = _record.ID;
-                label_facility.Text = _record.Facility;
+                label_facility.Text = FacilityName.GetFacilityNameByNO(_record.Facility);
                 label_yaosu.Text = YaoSuManager.GetElementNameByNO(_record.YaoSuBianHao);
                 label_zhuangti.Text = ZhuanTiManager.GetSubjectNameByNO(_record.ZhuangTiBianHao);
 
