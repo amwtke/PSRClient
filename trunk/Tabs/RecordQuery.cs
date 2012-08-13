@@ -254,8 +254,8 @@ namespace APP
             comboBox_fhpc.SelectedIndex = 0;
             Range range = new Range();
             range.BindCombobox(cmbFactory, FacilityName.dictFactory);
-            range.BindCombobox(cmbElement, YaoSuManager.dictElement);
-            range.BindCombobox(cmbSubject, ZhuanTiManager.dictSubject);
+            //range.BindCombobox(cmbElement, YaoSuManager.dictElement);
+            //range.BindCombobox(cmbSubject, ZhuanTiManager.dictSubject);
             range.SetRange(this,cmbFactory, cmbElement, cmbSubject);
             this.SetDtRecordColumn();
 

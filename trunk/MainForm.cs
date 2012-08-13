@@ -291,10 +291,11 @@ namespace APP
                 {
                     RecordHelper.RefreshDBOfRecord(openFileDialog1.FileName);
                     IsMyDB = false;
+
+                    btnQuery.PerformClick();
+                    //this.SetBtnColor(sender);
+                    bt_readother.Text = "切回自己的数据库";
                 }
-                btnQuery.PerformClick();
-                //this.SetBtnColor(sender);
-                bt_readother.Text = "切回自己的数据库";
             }
             else
             {
