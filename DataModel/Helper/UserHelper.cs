@@ -205,5 +205,32 @@ namespace APP
             }
             return false;
         }
+
+        public static User[] GetByExample(User user)
+        {
+            IObjectContainer _db = null;
+            try
+            {
+                if (user != null)
+                {
+                    _db = DBHelper.InitDB4O(typeof(User));
+                    IObjectSet sets = _db.QueryByExample(user);
+                    if (sets != null && sets.Count > 0)
+                    {
+                        User[] users = new User[sets.Count];
+                        for (int i = 0; i < sets.Count; i++)
+                        {
+                            users[i] = (User)sets[i];
+                        }
+                        return users;
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+            return null;
+        }
     }
 }

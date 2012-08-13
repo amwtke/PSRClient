@@ -47,15 +47,13 @@ namespace APP
             {
                 _user.Email = textBox_email.Text;
             }
-            if (!string.IsNullOrEmpty(textBox_pinying.Text))
-            {
-                _user.PingYing = textBox_pinying.Text;
-            }
+
             if (!string.IsNullOrEmpty(textBox_tele.Text))
             {
                 _user.Telephone = textBox_tele.Text;
             }
 
+            //密码
             if (!string.IsNullOrEmpty(textBox_password.Text))
             {
                 _user.Password = textBox_password.Text;
@@ -66,6 +64,7 @@ namespace APP
                 textBox_password.BackColor = Color.Red;
             }
 
+            //登录名
             if (!string.IsNullOrEmpty(textBox_loginName.Text))
             {
                 string _userName = textBox_loginName.Text.Trim();
@@ -84,6 +83,27 @@ namespace APP
             {
                 close = false;
                 textBox_loginName.BackColor = Color.Red;
+            }
+
+            //中文名
+            if (!string.IsNullOrEmpty(textBox_pinying.Text))
+            {
+                _user.PingYing = textBox_pinying.Text;
+                User u = new User();
+                u.PingYing = _user.PingYing;
+                User[] users = UserHelper.GetByExample(u);
+                if (users != null && users.Length > 0)
+                {
+                    MessageBox.Show("已经存在此中文名用户，请更改！");
+                    textBox_pinying.BackColor = Color.Red;
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("请填写中文名！");
+                textBox_pinying.BackColor = Color.Red;
+                return;
             }
 
             if (!string.IsNullOrEmpty(textBox_SuoXie.Text))
