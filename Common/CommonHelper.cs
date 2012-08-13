@@ -298,7 +298,7 @@ namespace APP
                 dr["resultContent"] = result.Content;
                 dr["factAgainst"] = result.AgainstFacts;
                 if (result.IsFH)
-                    dr["xiang"] = "不符合项";
+                    dr["xiang"] = "符合项";
                 if (result.IsPC)
                     dr["xiang"] = "偏差项";
 
