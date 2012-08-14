@@ -282,6 +282,7 @@ namespace APP
         }
 
         public static bool IsMyDB = true;
+        public static string currentDBPath = "";
         private void bt_readother_Click(object sender, EventArgs e)
         {
             if (bt_readother.Text == "切换数据库")
@@ -291,7 +292,7 @@ namespace APP
                 {
                     RecordHelper.RefreshDBOfRecord(openFileDialog1.FileName);
                     IsMyDB = false;
-
+                    currentDBPath = openFileDialog1.FileName;
                     btnQuery.PerformClick();
                     //this.SetBtnColor(sender);
                     bt_readother.Text = "切回自己的数据库";
@@ -302,6 +303,7 @@ namespace APP
                 string jiluPath = AppDomain.CurrentDomain.BaseDirectory + "记录\\";
                 string YapFileName = jiluPath + UserSession.LoginUser.PingYing + ".yap";
                 RecordHelper.RefreshDBOfRecord(YapFileName);
+                currentDBPath = YapFileName;
                 bt_readother.Text = "切换数据库";
                 IsMyDB = true;
                 btnQuery.PerformClick();

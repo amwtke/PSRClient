@@ -423,7 +423,10 @@ namespace APP
     {
         static IObjectContainer _dbRecord = null;
         static string _recordPath = "";
-        
+        static public string RecordDBPath
+        {
+            get { return _recordPath; }
+        }
         public static  string RecordBelongsTo
         {
             get
@@ -433,10 +436,7 @@ namespace APP
                     string[] temp = _recordPath.Split(new char[1] { '\\' });
                     if (temp != null && temp.Length > 0)
                     {
-                        string suoxie = temp[temp.Length - 1].Split(new char[1] { '.' })[0];
-                        User _u = UserHelper.GetUser(suoxie);
-                        if (_u != null)
-                            return _u.PingYing;
+                        return temp[temp.Length - 1].Split(new char[1] { '.' })[0];
                     }
                 }
                 return "";

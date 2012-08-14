@@ -235,14 +235,25 @@ namespace APP
 
         private void bt_openFolder_Click(object sender, EventArgs e)
         {
-            string picfoldername = _record.InputUser + "- 图片"+@"\"+_record.ID;
-            string appPath = CommonHelper.GetPicFolderPath();
-            string realPath = appPath.Split(new char[] { '\\' })[0];
+            string realPath = "";
+            string picfoldername = _record.InputUser + "- 图片" + @"\" + _record.ID;
+            if (UserSession.LoginUser.Role == Roles.RoleFactorTeamManager)
+            {
+                string[] temp =RecordHelper.RecordDBPath.Split(new char[] { '\\' });
+                string filename = temp[temp.Length-1];
+                realPath = RecordHelper.RecordDBPath.Replace(filename, "");
+            }
+            else
+            {
+                string[] temp = MainForm.currentDBPath.Split(new char[] { '\\' });
+                string filename = temp[temp.Length - 1];
+                realPath = MainForm.currentDBPath.Replace(filename, "");
+            }
             string recordFolder = System.IO.Path.Combine(realPath, picfoldername);
             if (System.IO.Directory.Exists(recordFolder))
             {
                 string[] directorys = System.IO.Directory.GetDirectories(recordFolder);
-                if(directorys!=null && directorys.Length>0)
+                if (directorys != null && directorys.Length > 0)
                     CommonHelper.OpenInExplorer(recordFolder);
                 else
                     MessageBox.Show("当前记录没有图片！");
