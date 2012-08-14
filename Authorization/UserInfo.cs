@@ -43,9 +43,9 @@ namespace APP
         {
             if (e.RowIndex >= 0)
             {
-                User _u = new User();
 
-                if (dataGridView1[0, e.RowIndex].Value!=null)
+                User _u = new User();
+                if (dataGridView1[0, e.RowIndex].Value != null)
                 {
                     _u.Name = dataGridView1[0, e.RowIndex].Value.ToString();
                     //_u.Roles = new List<string>();
