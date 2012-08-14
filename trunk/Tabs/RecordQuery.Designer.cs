@@ -45,14 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tpQuery = new System.Windows.Forms.TabPage();
             this.dgvRecord = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecordNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecordName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUBMITER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APPROVER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUBMITTIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpReturn = new System.Windows.Forms.TabPage();
             this.tpOK = new System.Windows.Forms.TabPage();
             this.tpSubmit = new System.Windows.Forms.TabPage();
@@ -80,6 +72,14 @@
             this.tabRecord = new System.Windows.Forms.TabControl();
             this.tpDeleted = new System.Windows.Forms.TabPage();
             this.toolTip_zhuanti = new System.Windows.Forms.ToolTip(this.components);
+            this.Select = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecordNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecordName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBMITER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.APPROVER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBMITTIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tpQuery.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecord)).BeginInit();
@@ -287,68 +287,11 @@
             this.dgvRecord.Name = "dgvRecord";
             this.dgvRecord.ReadOnly = true;
             this.dgvRecord.RowTemplate.Height = 23;
+            this.dgvRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecord.Size = new System.Drawing.Size(728, 292);
             this.dgvRecord.TabIndex = 1;
             this.dgvRecord.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecord_CellDoubleClick);
             this.dgvRecord.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvRecord_RowPostPaint);
-            // 
-            // Select
-            // 
-            this.Select.HeaderText = "选择";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Visible = false;
-            // 
-            // Sort
-            // 
-            this.Sort.HeaderText = "序号";
-            this.Sort.Name = "Sort";
-            this.Sort.ReadOnly = true;
-            this.Sort.Visible = false;
-            // 
-            // RecordNO
-            // 
-            this.RecordNO.DataPropertyName = "RecordNO";
-            this.RecordNO.HeaderText = "记录编号";
-            this.RecordNO.Name = "RecordNO";
-            this.RecordNO.ReadOnly = true;
-            // 
-            // RecordName
-            // 
-            this.RecordName.DataPropertyName = "RecordName";
-            this.RecordName.HeaderText = "审查对象";
-            this.RecordName.Name = "RecordName";
-            this.RecordName.ReadOnly = true;
-            this.RecordName.Width = 300;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "状态";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // SUBMITER
-            // 
-            this.SUBMITER.DataPropertyName = "SUBMITER";
-            this.SUBMITER.HeaderText = "提交人";
-            this.SUBMITER.Name = "SUBMITER";
-            this.SUBMITER.ReadOnly = true;
-            // 
-            // APPROVER
-            // 
-            this.APPROVER.DataPropertyName = "APPROVER";
-            this.APPROVER.HeaderText = "审批人";
-            this.APPROVER.Name = "APPROVER";
-            this.APPROVER.ReadOnly = true;
-            // 
-            // SUBMITTIME
-            // 
-            this.SUBMITTIME.DataPropertyName = "SUBMITTIME";
-            this.SUBMITTIME.HeaderText = "提交时间";
-            this.SUBMITTIME.Name = "SUBMITTIME";
-            this.SUBMITTIME.ReadOnly = true;
-            this.SUBMITTIME.Width = 150;
             // 
             // tpReturn
             // 
@@ -619,6 +562,66 @@
             // 
             this.toolTip_zhuanti.ShowAlways = true;
             // 
+            // Select
+            // 
+            this.Select.HeaderText = "选择";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Visible = false;
+            // 
+            // Sort
+            // 
+            this.Sort.HeaderText = "序号";
+            this.Sort.Name = "Sort";
+            this.Sort.ReadOnly = true;
+            this.Sort.Visible = false;
+            // 
+            // RecordNO
+            // 
+            this.RecordNO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.RecordNO.DataPropertyName = "RecordNO";
+            this.RecordNO.HeaderText = "记录编号";
+            this.RecordNO.Name = "RecordNO";
+            this.RecordNO.ReadOnly = true;
+            this.RecordNO.Width = 78;
+            // 
+            // RecordName
+            // 
+            this.RecordName.DataPropertyName = "RecordName";
+            this.RecordName.HeaderText = "审查对象";
+            this.RecordName.Name = "RecordName";
+            this.RecordName.ReadOnly = true;
+            this.RecordName.Width = 300;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // SUBMITER
+            // 
+            this.SUBMITER.DataPropertyName = "SUBMITER";
+            this.SUBMITER.HeaderText = "提交人";
+            this.SUBMITER.Name = "SUBMITER";
+            this.SUBMITER.ReadOnly = true;
+            // 
+            // APPROVER
+            // 
+            this.APPROVER.DataPropertyName = "APPROVER";
+            this.APPROVER.HeaderText = "审批人";
+            this.APPROVER.Name = "APPROVER";
+            this.APPROVER.ReadOnly = true;
+            // 
+            // SUBMITTIME
+            // 
+            this.SUBMITTIME.DataPropertyName = "SUBMITTIME";
+            this.SUBMITTIME.HeaderText = "提交时间";
+            this.SUBMITTIME.Name = "SUBMITTIME";
+            this.SUBMITTIME.ReadOnly = true;
+            this.SUBMITTIME.Width = 150;
+            // 
             // RecordQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -683,6 +686,13 @@
         private System.Windows.Forms.Label labSumDeleted;
         private System.Windows.Forms.Label labDeleted;
         private System.Windows.Forms.TabPage tpDeleted;
+        private System.Windows.Forms.ToolTip toolTip_zhuanti;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tb_against;
+        private System.Windows.Forms.TextBox tb_factDescription;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button bt_export;
+        private System.Windows.Forms.ComboBox comboBox_fhpc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Select;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sort;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecordNO;
@@ -691,12 +701,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBMITER;
         private System.Windows.Forms.DataGridViewTextBoxColumn APPROVER;
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBMITTIME;
-        private System.Windows.Forms.ToolTip toolTip_zhuanti;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tb_against;
-        private System.Windows.Forms.TextBox tb_factDescription;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button bt_export;
-        private System.Windows.Forms.ComboBox comboBox_fhpc;
     }
 }
