@@ -202,7 +202,7 @@ namespace APP
             else
                 _tempLabel.Text = "0" + (_controlCounter + 1).ToString();
 
-            if (!_unAgainstFactNo.ContainsKey(_panelContainer.Count + 1) && flagAddOrEdit==0)
+            if (!_unAgainstFactNo.ContainsKey(_panelContainer.Count + 1))
                 _unAgainstFactNo.Add(_panelContainer.Count + 1, "");
 
 
@@ -986,7 +986,7 @@ namespace APP
                 bt_addAffect.PerformClick();
                 bt_addResult.PerformClick();
             }
-
+            AfterLoadKillDuplicateAgainst();
         }
 
         public void LoadData() //加载数据
@@ -1708,10 +1708,37 @@ namespace APP
        /// <param name="index"></param>
         private void UpdateFactAfterDeleteFact(int index)
         {
-            if (_unAgainstFactNo.ContainsKey(index))
+            #region 更新_unlist
+            if (_unAgainstFactNo.ContainsKey(index))//在unlist的里面
             {
+                int deletePos = _unAgainstFactNo.IndexOfKey(index);
                 _unAgainstFactNo.Remove(index);
+                int count = _unAgainstFactNo.Keys.Count;
+
+                
+                for (; deletePos < count; deletePos++)
+                {
+                    int tempInt = _unAgainstFactNo.Keys[deletePos] - 1;
+                    _unAgainstFactNo.RemoveAt(deletePos);
+                    _unAgainstFactNo.Add(tempInt, "");
+                }
             }
+            else//在unlist的外面(内外)
+            {
+                int count = _unAgainstFactNo.Keys.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    int tempInt = _unAgainstFactNo.Keys[i];
+                    if (index < tempInt)
+                    {
+                        tempInt = tempInt - 1;
+                        _unAgainstFactNo.RemoveAt(i);
+                        _unAgainstFactNo.Add(tempInt, "");
+                    }
+                }
+            }
+
+            #endregion
 
             if (_tbResultContainer.Count >= 0)
             {
@@ -1768,6 +1795,29 @@ namespace APP
                                 {
                                     _unAgainstFactNo.Remove(no);
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        void AfterLoadKillDuplicateAgainst()
+        {
+            if (_tbResultContainer.Count >= 0)
+            {
+                foreach (TextBox tb in _tbResultContainer)
+                {
+                    string against = tb.Text;
+                    if (against != null && against.Length > 0)
+                    {
+                        string[] facts = against.Split(new char[] { ',' });
+                        if (facts != null && facts.Length > 0)
+                        {
+                            foreach (string s in facts)
+                            {
+                                if (_unAgainstFactNo.ContainsKey(int.Parse(s)))
+                                    _unAgainstFactNo.Remove(int.Parse(s));
                             }
                         }
                     }

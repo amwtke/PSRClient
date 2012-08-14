@@ -282,7 +282,7 @@ namespace APP
         }
 
         public static bool IsMyDB = true;
-        public static string currentDBPath = "";
+        public static string currentDBPath = RecordHelper.RecordDBPath;
         private void bt_readother_Click(object sender, EventArgs e)
         {
             if (bt_readother.Text == "切换数据库")
