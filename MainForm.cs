@@ -154,6 +154,8 @@ namespace APP
             添加记录ToolStripMenuItem.Enabled = Authorization.IsControlVisiable(btnAddRecord.Parent, btnQuery, "填写", null);
             #endregion
 
+            bt_readother.Enabled = Authorization.IsControlVisiable(treeView1.Parent, treeView1, "查询", null);
+
             if(Authorization.IsControlVisiable(treeView1.Parent, treeView1, "查询", null))
                 this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
         }
