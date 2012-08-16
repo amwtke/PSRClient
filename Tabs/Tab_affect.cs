@@ -1174,7 +1174,7 @@ namespace APP
                  */
                 _record.ID = tb_recordNo.Text;
 
-                _record.Status = status;//状态
+                
 
                 _record.InputTime = DateTime.Now;
                 if (!string.IsNullOrEmpty(textBox_recordName.Text) || status == RecordStatus.Inputed)//记录名称
@@ -1332,6 +1332,7 @@ namespace APP
 
                 if (close)
                 {
+                    _record.Status = status;//状态
                     if (flagAddOrEdit == 0)
                     {
                         //添加记录
