@@ -92,13 +92,13 @@ namespace APP
 
                 _sbFact.AppendLine("<body>");
                 _sbFact.AppendLine("<h1 ><font color=\"#000000\"><B>");
-                _sbFact.Append("共：" + _record.Facts.Count + "个事件");
+                _sbFact.Append("共：" + _record.Facts.Count + "个事实");
                 _sbFact.Append("</B></font></h1>");
                 //table
                 _sbFact.AppendLine("<table id=\"customers\">");
                 //header
                 _sbFact.AppendLine("<th>编号</th>");
-                _sbFact.AppendLine("<th>事件内容</th>");
+                _sbFact.AppendLine("<th>事实内容</th>");
                 
                 if (_record.Facts != null && _record.Facts.Count > 0)
                 {
