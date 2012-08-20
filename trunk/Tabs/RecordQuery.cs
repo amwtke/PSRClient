@@ -647,7 +647,7 @@ namespace APP
             {
                 if (!string.IsNullOrEmpty(_topic))
                 {
-                    flag = record.Topic.Contains(_topic);
+                    flag = record.Topic.ToUpper().Contains(_topic.ToUpper());
                 }
             }
 
@@ -657,7 +657,7 @@ namespace APP
                 {
                     foreach (Fact s in record.Facts)
                     {
-                        if (s.Content.Contains(_fcontent))
+                        if (s.Content.ToUpper().Contains(_fcontent.ToUpper()))
                         {
                             flag = true;
                             break;
