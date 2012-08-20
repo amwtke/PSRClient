@@ -936,7 +936,7 @@ namespace APP
 "*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif|Bitmaps   (*.bmp)|*.bmp| " +
 "GIFs   (*.gif)|*.gif|JPEGs   (*.jpg)|*.jpg;*.jpeg|PNGs   (*.png)|*.png|TIFs   (*.tif)|*.tif|All   Files   (*.*)|*.* ";
 
-            this.splitContainer1.SplitterDistance = 220;//固定基本信息面板高度
+            this.splitContainer1.SplitterDistance = 280;//固定基本信息面板高度
             this.panel1.MouseClick += new MouseEventHandler(panel1_MouseClick);
             richTextBox1.TextChanged+=new EventHandler(richTextBox1_TextChanged);
             richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbClob_KeyDown);
