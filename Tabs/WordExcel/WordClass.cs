@@ -21,6 +21,7 @@ namespace ExportToWord
             object objUnitParagraph = WdUnits.wdParagraph;
             object objUnitItem = WdUnits.wdItem;
             object objCollapseStart = WdCollapseDirection.wdCollapseStart;
+            object objExtendShift = WdMovementType.wdExtend;
 
             #endregion 
             #region 构造函数与析构函数 
@@ -253,12 +254,14 @@ public void PrintOut()
 
             #region 搜索和替换文档中的文本 
             public void Replace(string oriText, string replaceText) 
-            { 
-                object replaceAll = WdReplace.wdReplaceAll; 
+            {                 
+                object replaceAll = WdReplace.wdReplaceAll;
+
                 this.m_WordApp.Selection.Find.ClearFormatting(); 
                 this.m_WordApp.Selection.Find.Text = oriText; 
                 this.m_WordApp.Selection.Find.Replacement.ClearFormatting(); 
-                this.m_WordApp.Selection.Find.Replacement.Text = replaceText; 
+                this.m_WordApp.Selection.Find.Replacement.Text = replaceText;
+                this.m_WordApp.Selection.Find.Wrap = WdFindWrap.wdFindContinue;
                 this.m_WordApp.Selection.Find.Execute( 
                     ref missing, ref missing, ref missing, ref missing, ref missing, 
                     ref missing, ref missing, ref missing, ref missing, ref missing, 
@@ -277,7 +280,24 @@ public void PrintOut()
             }
  
             #endregion 
-            #region 文档中的Word表格 
+
+            #region 复制粘贴
+            /// <summary>
+            /// 复制当前
+            /// </summary>
+            public void Copy()
+            {
+                this.m_Selection.Copy();
+            }
+            /// <summary>
+            /// 带格式粘贴
+            /// </summary>
+            public void PasteAndFormat()
+            {
+                this.m_Selection.PasteAndFormat(WdRecoveryType.wdPasteDefault);
+            }
+            #endregion 复制粘贴
+            #region 文档中的Word表格
             /// &lt;summary> 
             /// 向文档中插入表格 
             /// &lt;/summary> 
@@ -434,6 +454,32 @@ public void PrintOut()
                 }
             }
             /// <summary>
+            /// 按住shift下移
+            /// </summary>
+            /// <param name="intLineCount">下移行数</param>
+            public void MoveDownByShift(int intLineCount)
+            {
+                object objLineCount = intLineCount;
+                this.m_Selection.MoveDown(ref objUnitLine, ref objLineCount, ref objExtendShift);
+            }
+
+            /// <summary>
+            /// 下移到段首
+            /// </summary>
+            /// <param name="intParaCount"></param>
+            public void MoveDownToParaStart(int intParaCount)
+            {
+                object objParaCount = intParaCount;
+                this.m_Selection.MoveDown(ref objUnitParagraph, ref objParaCount,ref missing);
+            }
+
+            public void MoveUpByLine(int intLineCount)
+            {
+                object objLineCount = intLineCount;
+                this.m_Selection.MoveUp(ref objUnitLine, ref objLineCount, ref missing);
+            }
+
+            /// <summary>
             /// 光标移至文本行末尾
             /// </summary>
             public void MoveToTextLineEnd()
@@ -473,6 +519,14 @@ public void PrintOut()
             {
                 this.m_Selection.HomeKey(ref objUnitRow, ref missing);
             }
+
+            /// <summary>
+            /// 回车换行
+            /// </summary>
+            public void AddNewParagraph()
+            {
+                this.m_Selection.TypeParagraph();
+            }
             #endregion 光标操作
 
             #region Word表格操作
@@ -510,7 +564,10 @@ public void PrintOut()
                 //this.m_Selection = this.m_WordApp.Selection;
                 int intColCount=dtSource.Columns.Count;
                 //this.MoveDownByLine(intMoveDownLineCount);//向下移至表格标题所在行
-                this.MoveDownByTableRow(intMoveDownLineCount);
+                if (intMoveDownLineCount > 0)
+                {
+                    this.MoveDownByTableRow(intMoveDownLineCount);
+                }
                 this.MoveToTableRowLineEnd();//移至标题行右边框右侧
                 foreach (DataRow dr in dtSource.Rows)
                 {
