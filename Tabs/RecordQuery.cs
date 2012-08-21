@@ -83,7 +83,7 @@ namespace APP
         }
         private void SetDtRecordColumn()
         {
-            string[] arrColName = new string[] { "RECORDNO", "RECORDNAME", "STATUS","SUBMITER" ,"APPROVER","SUBMITTIME" };
+            string[] arrColName = new string[] { "RECORDNO", "RECORDNAME", "STATUS","SUBMITER" ,"APPROVER","SUBMITTIME","FACTORY","ELEMENT" };
             this.SetDataTableColumn(this.dtRecordInRange, arrColName);
         }
         public void GetRecordInRange(string strFactoryNO, string strElementNO, string strSubjectNO)
@@ -103,6 +103,8 @@ namespace APP
                 dr["SUBMITER"] = record.InputUser;
                 dr["APPROVER"] = record.ApproveBy;
                 dr["SUBMITTIME"] = record.InputTime;
+                dr["FACTORY"] = record.Facility;
+                dr["ELEMENT"] = record.YaoSuBianHao;
                 dtRecordInRange.Rows.Add(dr);
             }
         }
@@ -279,6 +281,7 @@ namespace APP
                 }
             }
             btnQuery.PerformClick();
+
         }
 
 
@@ -604,6 +607,27 @@ namespace APP
         }
 
         #endregion
+
+        private void bt_export_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> dictQueryCondition = new Dictionary<string, string>();
+            dictQueryCondition.Add("<facility>", cmbFactory.Text);
+            dictQueryCondition.Add("<yaosu>", cmbElement.Text);
+            dictQueryCondition.Add("<zhuanti>", cmbSubject.Text);
+            dictQueryCondition.Add("<fuhepiancha>", comboBox_fhpc.Text);
+            dictQueryCondition.Add("<descirption>", tb_factDescription.Text);
+            dictQueryCondition.Add("<shenchaduixiang>", tb_against.Text);
+            DataView dvRecord = dtRecordInRange.DefaultView;
+            dvRecord.Sort = "FACTORY ASC,ELEMENT ASC,RECORDNO ASC";
+            DataTable dtRecord = dvRecord.ToTable();
+            CommonHelper.WordOutPut(dictQueryCondition, dtRecordInRange);            
+        }
+
+        private void dgvRecord_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvRecord.Columns["FACTORY"].Visible = false;
+            dgvRecord.Columns["ELEMENT"].Visible = false;
+        }
 
     }
 
