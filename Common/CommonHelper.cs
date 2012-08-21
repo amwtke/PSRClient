@@ -335,6 +335,147 @@ namespace APP
             }
         }
 
+        /// <summary>
+        /// 管理员导出所有事实
+        /// </summary>
+        /// <param name="dictReplace">facts.doc模板查询条件栏替换字典</param>
+        /// <param name="dtRecord">按电厂、要素排序后的记录</param>
+        public static void WordOutPut(Dictionary<string,string> dictReplace,DataTable dtRecord)
+        {
+            if (dtRecord.Rows.Count == 0)
+            {
+                MessageBox.Show("没有事实可以导出！");
+                return;
+            }
+            WordClass word = null;
+            string strPath = Application.StartupPath;
+            string strWordFilePath = strPath + @"\template\facts.doc";//模板路径
+            string outputDir = "";//导出路径
+            FolderBrowserDialog _fbd = new FolderBrowserDialog();
+            _fbd.Description = "选择导出word文件目录";
+            _fbd.RootFolder = Environment.SpecialFolder.MyComputer;
+            _fbd.ShowNewFolderButton = true;
+            if (_fbd.ShowDialog() == DialogResult.OK)
+            {
+                outputDir = _fbd.SelectedPath;
+            }
+            else
+            {
+                return;
+            }
+            if (!System.IO.Directory.Exists(outputDir))
+                System.IO.Directory.CreateDirectory(outputDir);
+            string strExportPath = outputDir + "\\所有事实" + ".doc";
+
+            string strRecordNo =dtRecord.Rows[0]["RECORDNO"].ToString();//第一行记录号
+            string strElement = dtRecord.Rows[0]["ELEMENT"].ToString();//第一行要素
+            bool blNewElement = false;//是否新要素
+            DataTable dtFact = new DataTable();
+            dtFact.Columns.Add("factno");//编号
+            dtFact.Columns.Add("content");//内容
+            dtFact.Columns.Add("fit");//符合项/偏差项
+
+            try
+            {
+                word = new WordClass();
+                word.OpenDocument(strWordFilePath);
+                word.ReplaceInBatch(dictReplace);//先替换模板查询条件栏
+                word.GetSelection();//获取光标
+                word.MoveDownByLine(8);//下移到“查询结果”行
+                word.MoveDownToParaStart(1);//下移至<ELEMENT>段首
+                word.MoveDownByShift(3);//按住shift键选中<ELEMENT>、事实表格标题、事实表格第一行数据
+                word.Copy();//复制刚选中的
+                word.Replace("<ELEMENT>", YaoSuManager.GetElementNameByNO(strElement));//替换要素
+                
+                word.MoveDownByLine(1);
+                word.MoveUpByLine(1);//定位到编号下的单元格
+                word.MoveToTableRowFirstCellStart();//确保定位到编号下的单元格
+
+                foreach (DataRow drRecord in dtRecord.Rows)
+                {
+                    string strCurrentRecordNo = drRecord["RECORDNO"].ToString();
+                    string strCurrentElement = drRecord["ELEMENT"].ToString();
+                    if (strElement != strCurrentElement)//新要素
+                    {
+                        word.MoveToTableRowLineEnd();
+                        word.MoveDownToParaStart(1);//下移一行
+                        word.AddNewParagraph();//回车换行
+                        word.PasteAndFormat();//新要素则粘贴
+                        strElement = strCurrentElement;
+                        word.Replace("<ELEMENT>", YaoSuManager.GetElementNameByNO(strElement));//替换要素
+                        word.MoveUpByLine(1);//定位到编号下的单元格
+                        blNewElement = true;
+                    }
+                    else
+                    {
+                        blNewElement = false;
+                    }
+                    if (!blNewElement && strRecordNo != strCurrentRecordNo)//新记录但非新要素
+                    {
+                        word.InsertEmptyRow(1);//插入一空行
+                    }
+                    strRecordNo = strCurrentRecordNo;
+
+                    Fact fact = new Fact();
+                    fact.RecordNo = strRecordNo;
+                    Fact[] arrFact = FactHelper.GetByExampleArray(fact);                    
+                    fact = arrFact[0];//第一个事实
+                    DataRow drFact = FactToDataRow(strRecordNo, fact, dtFact);
+                    word.FillRowData(drFact, 3);//填充第一个事实
+
+                    if (arrFact.Length > 1)
+                    {
+                        dtFact.Rows.Clear();
+                        for (int i = 1; i < arrFact.Length; i++)
+                        {
+                            fact = arrFact[i];
+                            drFact = FactToDataRow(strRecordNo, fact, dtFact);
+                            dtFact.Rows.Add(drFact);
+                        }
+                        word.AddTableData(0, dtFact);//填充第一行记录的其它事实
+                    }
+                }
+                word.SaveAs(strExportPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (word != null)
+                {
+                    MessageBox.Show(word.Document.Name + " 创建成功！");
+                    word.Close(false);
+                    word.Dispose();
+                    word = null;
+                    GC.Collect();
+                }
+            }
+        }
+        /// <summary>
+        /// Fact转换为DataRow
+        /// </summary>
+        /// <param name="strRecordNo">记录编号</param>
+        /// <param name="fact">Fact对象</param>
+        /// <param name="dtFact">转换的DataRow所属表</param>
+        /// <returns></returns>
+        public static DataRow FactToDataRow(string strRecordNo, Fact fact, DataTable dtFact)
+        {
+            DataRow drFact = dtFact.NewRow();
+            drFact["factno"] = strRecordNo + "-" + fact.ID.ToString();//编号
+            drFact["content"] = fact.Content;
+            if (fact.IsFH)
+            {
+                drFact["fit"] = "符合项";
+            }
+            if (fact.IsPC)
+            {
+                drFact["fit"] = "偏差项";
+            }
+            return drFact;
+        }
+
         #region Reflect
         //深度复制对象
         public static void CopyObject<T>(T original, T updated)
