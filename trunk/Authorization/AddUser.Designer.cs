@@ -48,6 +48,7 @@
             this.comboBox1_danwei = new System.Windows.Forms.ComboBox();
             this.button1_OK = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
+            this.bt_genpassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -136,7 +137,7 @@
             // 
             // textBox_email
             // 
-            this.textBox_email.Location = new System.Drawing.Point(84, 155);
+            this.textBox_email.Location = new System.Drawing.Point(84, 178);
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(290, 21);
             this.textBox_email.TabIndex = 11;
@@ -144,7 +145,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(49, 158);
+            this.label6.Location = new System.Drawing.Point(49, 181);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 12);
             this.label6.TabIndex = 10;
@@ -153,7 +154,7 @@
             // comboBox_role
             // 
             this.comboBox_role.FormattingEnabled = true;
-            this.comboBox_role.Location = new System.Drawing.Point(84, 198);
+            this.comboBox_role.Location = new System.Drawing.Point(84, 221);
             this.comboBox_role.Name = "comboBox_role";
             this.comboBox_role.Size = new System.Drawing.Size(272, 20);
             this.comboBox_role.TabIndex = 12;
@@ -161,7 +162,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(49, 201);
+            this.label7.Location = new System.Drawing.Point(49, 224);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 12);
             this.label7.TabIndex = 13;
@@ -187,7 +188,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(49, 243);
+            this.label9.Location = new System.Drawing.Point(49, 266);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 15;
@@ -196,14 +197,14 @@
             // comboBox1_danwei
             // 
             this.comboBox1_danwei.FormattingEnabled = true;
-            this.comboBox1_danwei.Location = new System.Drawing.Point(84, 240);
+            this.comboBox1_danwei.Location = new System.Drawing.Point(84, 263);
             this.comboBox1_danwei.Name = "comboBox1_danwei";
             this.comboBox1_danwei.Size = new System.Drawing.Size(272, 20);
             this.comboBox1_danwei.TabIndex = 14;
             // 
             // button1_OK
             // 
-            this.button1_OK.Location = new System.Drawing.Point(116, 285);
+            this.button1_OK.Location = new System.Drawing.Point(116, 301);
             this.button1_OK.Name = "button1_OK";
             this.button1_OK.Size = new System.Drawing.Size(75, 23);
             this.button1_OK.TabIndex = 16;
@@ -213,7 +214,7 @@
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(234, 285);
+            this.button_Cancel.Location = new System.Drawing.Point(234, 301);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(75, 23);
             this.button_Cancel.TabIndex = 17;
@@ -221,11 +222,22 @@
             this.button_Cancel.UseVisualStyleBackColor = true;
             this.button_Cancel.Click += new System.EventHandler(this.button_Cancel_Click);
             // 
+            // bt_genpassword
+            // 
+            this.bt_genpassword.Location = new System.Drawing.Point(102, 141);
+            this.bt_genpassword.Name = "bt_genpassword";
+            this.bt_genpassword.Size = new System.Drawing.Size(75, 23);
+            this.bt_genpassword.TabIndex = 18;
+            this.bt_genpassword.Text = "随机密码";
+            this.bt_genpassword.UseVisualStyleBackColor = true;
+            this.bt_genpassword.Click += new System.EventHandler(this.bt_genpassword_Click);
+            // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 333);
+            this.Controls.Add(this.bt_genpassword);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button1_OK);
             this.Controls.Add(this.label9);
@@ -278,6 +290,7 @@
         private System.Windows.Forms.ComboBox comboBox1_danwei;
         private System.Windows.Forms.Button button1_OK;
         private System.Windows.Forms.Button button_Cancel;
+        private System.Windows.Forms.Button bt_genpassword;
 
     }
 }

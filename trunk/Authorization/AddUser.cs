@@ -16,6 +16,7 @@ namespace APP
             InitializeComponent();
             comboBox_role.Items.AddRange(Roles.GetRoleList().ToArray());
             comboBox1_danwei.Items.AddRange(DanWeiManager.DanWeiList.ToArray());
+            
         }
         public AddUser(User _u)
         {
@@ -182,6 +183,29 @@ namespace APP
         private void AddUser_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void bt_genpassword_Click(object sender, EventArgs e)
+        {
+            textBox_password.Text = RandomPassword.GetRandomPassword(6);
+        }
+    }
+
+    public class RandomPassword
+    {
+        private static string randomChars = "abcdefghijklmnopqrstuvwxyz012346789";
+
+        public static string GetRandomPassword(int passwordLen)
+        {
+            string password = string.Empty;
+            int randomNum;
+            Random random = new Random();
+            for (int i = 0; i < passwordLen; i++)
+            {
+                randomNum = random.Next(randomChars.Length);
+                password += randomChars[randomNum];
+            }
+            return password;
         }
     }
 }
