@@ -319,6 +319,9 @@
     <None Include="template\approve.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="template\facts.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="template\record.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
