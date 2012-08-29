@@ -43,14 +43,15 @@
             this.btnAddRecord = new System.Windows.Forms.Button();
             this.BT_SysConfig = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
-            this.BT_Logout = new System.Windows.Forms.Button();
             this.bt_readother = new System.Windows.Forms.Button();
+            this.BT_Logout = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.labLoginInfo = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.bt_loadData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.MainForm_flowLayoutPanel.SuspendLayout();
@@ -128,6 +129,7 @@
             this.MainForm_flowLayoutPanel.Controls.Add(this.BT_SysConfig);
             this.MainForm_flowLayoutPanel.Controls.Add(this.btnQuery);
             this.MainForm_flowLayoutPanel.Controls.Add(this.bt_readother);
+            this.MainForm_flowLayoutPanel.Controls.Add(this.bt_loadData);
             this.MainForm_flowLayoutPanel.Controls.Add(this.BT_Logout);
             this.MainForm_flowLayoutPanel.Controls.Add(this.btnHelp);
             this.MainForm_flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -194,20 +196,6 @@
             this.btnQuery.UseVisualStyleBackColor = true;
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
-            // BT_Logout
-            // 
-            this.BT_Logout.FlatAppearance.BorderSize = 0;
-            this.BT_Logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.BT_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_Logout.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BT_Logout.Location = new System.Drawing.Point(407, 3);
-            this.BT_Logout.Name = "BT_Logout";
-            this.BT_Logout.Size = new System.Drawing.Size(75, 33);
-            this.BT_Logout.TabIndex = 5;
-            this.BT_Logout.Text = "登出";
-            this.BT_Logout.UseVisualStyleBackColor = true;
-            this.BT_Logout.Click += new System.EventHandler(this.BT_Logout_Click);
-            // 
             // bt_readother
             // 
             this.bt_readother.FlatAppearance.BorderSize = 0;
@@ -222,13 +210,27 @@
             this.bt_readother.UseVisualStyleBackColor = true;
             this.bt_readother.Click += new System.EventHandler(this.bt_readother_Click);
             // 
+            // BT_Logout
+            // 
+            this.BT_Logout.FlatAppearance.BorderSize = 0;
+            this.BT_Logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.BT_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_Logout.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.BT_Logout.Location = new System.Drawing.Point(488, 3);
+            this.BT_Logout.Name = "BT_Logout";
+            this.BT_Logout.Size = new System.Drawing.Size(75, 33);
+            this.BT_Logout.TabIndex = 5;
+            this.BT_Logout.Text = "登出";
+            this.BT_Logout.UseVisualStyleBackColor = true;
+            this.BT_Logout.Click += new System.EventHandler(this.BT_Logout_Click);
+            // 
             // btnHelp
             // 
             this.btnHelp.FlatAppearance.BorderSize = 0;
             this.btnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHelp.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnHelp.Location = new System.Drawing.Point(488, 3);
+            this.btnHelp.Location = new System.Drawing.Point(569, 3);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(75, 33);
             this.btnHelp.TabIndex = 7;
@@ -295,6 +297,20 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "files(*.yap)|*.yap";
             // 
+            // bt_loadData
+            // 
+            this.bt_loadData.FlatAppearance.BorderSize = 0;
+            this.bt_loadData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.bt_loadData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_loadData.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_loadData.Location = new System.Drawing.Point(407, 3);
+            this.bt_loadData.Name = "bt_loadData";
+            this.bt_loadData.Size = new System.Drawing.Size(75, 33);
+            this.bt_loadData.TabIndex = 9;
+            this.bt_loadData.Text = "导入数据";
+            this.bt_loadData.UseVisualStyleBackColor = true;
+            this.bt_loadData.Click += new System.EventHandler(this.bt_loadData_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -343,6 +359,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button bt_readother;
+        private System.Windows.Forms.Button bt_loadData;
     }
 }
 

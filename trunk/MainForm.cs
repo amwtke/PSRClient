@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Db4objects.Db4o;
 namespace APP
 {
     public partial class MainForm : Form
@@ -154,6 +155,8 @@ namespace APP
             添加记录ToolStripMenuItem.Enabled = Authorization.IsControlVisiable(btnAddRecord.Parent, btnQuery, "填写", null);
             #endregion
 
+            bt_loadData.Enabled = Authorization.IsControlVisiable(treeView1.Parent, treeView1, "查询", null);
+
             bt_readother.Enabled = Authorization.IsControlVisiable(treeView1.Parent, treeView1, "查询", null);
 
             if(Authorization.IsControlVisiable(treeView1.Parent, treeView1, "查询", null))
@@ -298,6 +301,8 @@ namespace APP
                     btnQuery.PerformClick();
                     //this.SetBtnColor(sender);
                     bt_readother.Text = "切回自己的数据库";
+                    btnAddRecord.Enabled = false;
+                    bt_loadData.Enabled = false;
                 }
             }
             else
@@ -310,6 +315,52 @@ namespace APP
                 IsMyDB = true;
                 btnQuery.PerformClick();
                 //this.SetBtnColor(sender);
+                btnAddRecord.Enabled = true;
+                bt_loadData.Enabled = true;
+            }
+        }
+
+        private void bt_loadData_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "请加载自己的数据库";
+            openFileDialog1.Filter = "files(*.yap)|*.yap";
+            openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string strImportYapFile = openFileDialog1.FileName;
+                IObjectContainer _dbSorce = null;
+                try
+                {
+                    _dbSorce = DBHelper.InitDB4O(strImportYapFile, typeof(Record));
+                    IObjectSet sets = _dbSorce.QueryByExample(typeof(Record));//yap文件所有记录
+                    IList<Record> importRecords = new List<Record>();
+                    if (sets.Count > 0)
+                    {
+                        //records = new Record[sets.Count];
+                        for (int i = 0; i < sets.Count; i++)
+                        {
+                            Record newRecord = (Record)sets[i];
+                            if (newRecord.InputUser==UserSession.LoginUser.PingYing)
+                            {
+                                Record temp =  RecordHelper.GetByRecordId(newRecord.ID);
+                                //导入新增记录,更新编辑与已提交记录
+                                if (temp == null || temp.Status == APP.RecordStatus.Inputed||temp.Status == APP.RecordStatus.HoldForApprove)
+                                    importRecords.Add(newRecord);
+                            }
+                        }
+                        RecordHelper.UpdateRecords(importRecords);
+                    }
+                    MessageBox.Show("导入成功！"+"\n共导入更新了"+importRecords.Count+"条记录!");
+                    btnQuery.PerformClick();
+                }
+                catch (System.Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    _dbSorce.Close();
+                }
             }
         }
 
