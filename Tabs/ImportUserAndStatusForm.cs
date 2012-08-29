@@ -13,6 +13,10 @@ namespace APP
     {
         AdminForm _senderForm = null;
         MainForm _sendMain = null;
+        public ImportUserAndStatusForm()
+        {
+            InitializeComponent();
+        }
         public ImportUserAndStatusForm(AdminForm sender)
         {
             InitializeComponent();

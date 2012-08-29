@@ -280,6 +280,10 @@ namespace APP
                     throw new Exception("无用户左树！");
                 }
             }
+
+            //检查权限
+            bt_export.Visible = Authorization.IsControlVisiable(bt_export.Parent, bt_export, "系统", null);
+
             btnQuery.PerformClick();
 
         }
