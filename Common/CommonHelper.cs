@@ -12,6 +12,7 @@ using ExportToWord;
 using System.Data;
 using System.Collections;
 using System.Linq;
+using Microsoft.Win32;
 
 namespace APP
 {
@@ -19,6 +20,13 @@ namespace APP
    
     public class CommonHelper
     {
+        public enum OfficeVersion
+        {
+            Office2003=3,
+            Office2007=7,
+            OfficeUnknown=-1//未知office
+        }
+
         public static string GetAssemblyPath()
         {
             string _CodeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
@@ -64,7 +72,34 @@ namespace APP
             if(!string.IsNullOrEmpty(path))
                 System.Diagnostics.Process.Start(path);
         }
-
+        /// <summary>
+        /// 获取客户端Office版本
+        /// </summary>
+        /// <returns></returns>
+        public static OfficeVersion GetOfficeVersion()
+        {
+            Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.LocalMachine;
+            RegistryKey keyOffice03 = rk.OpenSubKey(@"SOFTWARE\\Microsoft\\Office\\11.0\\Word\\InstallRoot\\");
+            RegistryKey keyOffice07 = rk.OpenSubKey(@"SOFTWARE\\Microsoft\\Office\\12.0\\Word\\InstallRoot\\");
+            if(keyOffice07!=null)
+            {
+                string strFile07=keyOffice07.GetValue("Path").ToString();
+                if(File.Exists(Path.Combine(strFile07,"Excel.exe")))
+                {
+                    return OfficeVersion.Office2007;
+                }
+            }
+            if (keyOffice03 != null)
+            {
+                string strFile03 = keyOffice03.GetValue("Path").ToString();
+                if(File.Exists(Path.Combine(strFile03,"Excel.exe")))
+                {
+                    return OfficeVersion.Office2003;
+                }
+            }
+            return OfficeVersion.OfficeUnknown;
+        }
+        
         public static void WordOutPut(DataGridViewRow selectRow)
         {
             String strID = selectRow.Cells["recordno"].Value.ToString();
@@ -386,9 +421,17 @@ namespace APP
                 word.MoveDownByShift(3);//按住shift键选中<ELEMENT>、事实表格标题、事实表格第一行数据
                 word.Copy();//复制刚选中的
                 word.Replace("<ELEMENT>", YaoSuManager.GetElementNameByNO(strElement));//替换要素
-                
-                word.MoveDownByLine(1);
-                word.MoveUpByLine(1);//定位到编号下的单元格
+
+                OfficeVersion officeVersion = GetOfficeVersion();//获取Office版本
+                if (officeVersion == OfficeVersion.Office2007)
+                {
+                    word.MoveDownByLine(2);//2007替换后光标还定位在要素行
+                }
+                else
+                {
+                    word.MoveDownByLine(1);
+                    word.MoveUpByLine(1);//定位到编号下的单元格
+                }
                 word.MoveToTableRowFirstCellStart();//确保定位到编号下的单元格
 
                 foreach (DataRow drRecord in dtRecord.Rows)
@@ -399,10 +442,6 @@ namespace APP
                     {
                         strElement = strCurrentElement;
                         string strElementName = YaoSuManager.GetElementNameByNO(strElement);
-                        if (strElementName == "概率安全分析")
-                        {
-                            string str = "1";
-                        }
                         //word.MoveToTableRowLineEnd();
                         word.MoveToTableRowParaEnd();
                         word.MoveDownToParaStart(1);//下移一行
