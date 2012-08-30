@@ -22,7 +22,7 @@ namespace ExportToWord
             object objUnitItem = WdUnits.wdItem;
             object objCollapseStart = WdCollapseDirection.wdCollapseStart;
             object objExtendShift = WdMovementType.wdExtend;
-
+            
             #endregion 
             #region 构造函数与析构函数 
             public WordClass() 
@@ -507,10 +507,20 @@ public void PrintOut()
             public void MoveToTableRowLineEnd()
             {
                 object objItemCount = 1;
+                object objParaDownCount = 1;
                 this.m_Selection.EndKey(ref objUnitRow, ref missing);//Alt+End
                 //this.MoveRightByChar(1);
                 //this.m_Selection.MoveDown(ref objUnitParagraph, ref objParaDownCount, ref missing);//Ctrl+↓
-                this.m_Selection.MoveRight(ref objUnitItem,ref objItemCount, ref missing);
+                this.m_Selection.MoveRight(ref objUnitItem,ref objItemCount, ref missing);//Alt+↓
+            }
+            /// <summary>
+            /// 光标移至Word表格当前行右边框的外面（通过Alt+End和Ctrl+↓）
+            /// </summary>
+            public void MoveToTableRowParaEnd()
+            {
+                object objParaDownCount = 1;
+                this.m_Selection.EndKey(ref objUnitRow, ref missing);//Alt+End
+                this.m_Selection.MoveDown(ref objUnitParagraph, ref objParaDownCount, ref missing);//Ctrl+↓
             }
             /// <summary>
             /// 光标移至Word表格当前行第一个单元格内容的最前面
