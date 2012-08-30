@@ -397,12 +397,18 @@ namespace APP
                     string strCurrentElement = drRecord["ELEMENT"].ToString();
                     if (strElement != strCurrentElement)//新要素
                     {
-                        word.MoveToTableRowLineEnd();
+                        strElement = strCurrentElement;
+                        string strElementName = YaoSuManager.GetElementNameByNO(strElement);
+                        if (strElementName == "概率安全分析")
+                        {
+                            string str = "1";
+                        }
+                        //word.MoveToTableRowLineEnd();
+                        word.MoveToTableRowParaEnd();
                         word.MoveDownToParaStart(1);//下移一行
                         word.AddNewParagraph();//回车换行
                         word.PasteAndFormat();//新要素则粘贴
-                        strElement = strCurrentElement;
-                        word.Replace("<ELEMENT>", YaoSuManager.GetElementNameByNO(strElement));//替换要素
+                        word.Replace("<ELEMENT>",strElementName);//替换要素
                         word.MoveUpByLine(1);//定位到编号下的单元格
                         blNewElement = true;
                     }
@@ -432,6 +438,8 @@ namespace APP
                             drFact = FactToDataRow(strRecordNo, fact, dtFact);
                             dtFact.Rows.Add(drFact);
                         }
+                        //word.MoveToTableRowLineEnd();
+                        word.MoveToTableRowParaEnd();
                         word.AddTableData(0, dtFact);//填充第一行记录的其它事实
                     }
                 }
