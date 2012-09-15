@@ -423,7 +423,7 @@ namespace APP
                 word.Replace("<ELEMENT>", YaoSuManager.GetElementNameByNO(strElement));//替换要素
 
                 OfficeVersion officeVersion = GetOfficeVersion();//获取Office版本
-                if (officeVersion == OfficeVersion.Office2007)
+                if (officeVersion == OfficeVersion.Office2007 || officeVersion == OfficeVersion.OfficeUnknown)
                 {
                     word.MoveDownByLine(2);//2007替换后光标还定位在要素行
                 }
