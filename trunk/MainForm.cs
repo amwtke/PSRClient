@@ -364,5 +364,42 @@ namespace APP
             }
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_innerPanel.Controls.Count > 0)
+            {
+                Control _c = _innerPanel.Controls[0];
+                if (_c is Tab1_AddAffectForm)
+                {
+                    Tab1_AddAffectForm _t = (Tab1_AddAffectForm)_c;
+                    Record _record = _t.ReturnRecord();
+
+                    if (_record!=null && _record.ID == null)
+                    {
+                        MessageBox.Show("没有生成记录编号，安全退出:-)");
+                    }
+                    else if (_record != null) //&& _record.Status == APP.RecordStatus.Inputed)
+                    {
+                        _record.Status = APP.RecordStatus.Inputed;
+
+                        if (MessageBox.Show("是否要退出？", "关闭", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            if (MessageBox.Show("保存？", "是否保存", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                            {
+                                _t.Save(APP.RecordStatus.Inputed, _t.SaveButton);
+                                System.Threading.Thread.Sleep(500);
+                            }
+                            //确定退出行
+                            e.Cancel = false;
+                        }
+                        else
+                        {
+                            e.Cancel = true;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

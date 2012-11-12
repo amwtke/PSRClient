@@ -1119,7 +1119,7 @@ namespace APP
 
         //符合项列表
         List<int> _fuhe = new List<int>();
-        private void Save(String status, object sender)
+        public void Save(String status, object sender)
         {
             Button _buttonClicked = (Button)sender;
             bool close = true;
@@ -1350,7 +1350,8 @@ namespace APP
                         RecordHelper.UpdateRecords(r);//更新
                     }
                     if (status == RecordStatus.Inputed)
-                        MessageBox.Show("保存成功");
+                        if(sender!=null)
+                            MessageBox.Show("保存成功");
                     else
                         MessageBox.Show("提交成功");
 
@@ -1494,16 +1495,28 @@ namespace APP
             //}
         }
 
+        public Button SaveButton
+        {
+            get { return Bt_comfirmRecord; }
+        }
         private void Tab1_AddAffectForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_record.Status == RecordStatus.Inputed)
             {
-                if (MessageBox.Show("是否退出？", "关闭", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("是否要退出？", "关闭", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
+                    if (MessageBox.Show("保存？", "是否保存", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        Save(RecordStatus.Inputed, this.Bt_comfirmRecord);
+                        System.Threading.Thread.Sleep(500);
+                    }
+                    //确定退出行
                     e.Cancel = false;
                 }
                 else
+                {
                     e.Cancel = true;
+                }
             }
         }
 
@@ -1824,6 +1837,11 @@ namespace APP
                     }
                 }
             }
+        }
+
+        public Record ReturnRecord()
+        {
+            return _record;
         }
     }
 }
