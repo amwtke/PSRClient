@@ -44,6 +44,7 @@
             this.BT_SysConfig = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
             this.bt_readother = new System.Windows.Forms.Button();
+            this.bt_loadData = new System.Windows.Forms.Button();
             this.BT_Logout = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.labLoginInfo = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.bt_loadData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.MainForm_flowLayoutPanel.SuspendLayout();
@@ -63,9 +63,9 @@
             // 
             // panel_form
             // 
-            this.panel_form.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_form.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_form.AutoScroll = true;
             this.panel_form.Location = new System.Drawing.Point(0, 37);
             this.panel_form.Name = "panel_form";
@@ -94,9 +94,9 @@
             // 
             // treeView1
             // 
-            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeView1.Location = new System.Drawing.Point(0, 37);
             this.treeView1.Name = "treeView1";
@@ -210,6 +210,20 @@
             this.bt_readother.UseVisualStyleBackColor = true;
             this.bt_readother.Click += new System.EventHandler(this.bt_readother_Click);
             // 
+            // bt_loadData
+            // 
+            this.bt_loadData.FlatAppearance.BorderSize = 0;
+            this.bt_loadData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.bt_loadData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_loadData.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_loadData.Location = new System.Drawing.Point(407, 3);
+            this.bt_loadData.Name = "bt_loadData";
+            this.bt_loadData.Size = new System.Drawing.Size(75, 33);
+            this.bt_loadData.TabIndex = 9;
+            this.bt_loadData.Text = "导入数据";
+            this.bt_loadData.UseVisualStyleBackColor = true;
+            this.bt_loadData.Click += new System.EventHandler(this.bt_loadData_Click);
+            // 
             // BT_Logout
             // 
             this.BT_Logout.FlatAppearance.BorderSize = 0;
@@ -261,9 +275,9 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(12, 57);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -297,20 +311,6 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "files(*.yap)|*.yap";
             // 
-            // bt_loadData
-            // 
-            this.bt_loadData.FlatAppearance.BorderSize = 0;
-            this.bt_loadData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.bt_loadData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_loadData.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_loadData.Location = new System.Drawing.Point(407, 3);
-            this.bt_loadData.Name = "bt_loadData";
-            this.bt_loadData.Size = new System.Drawing.Size(75, 33);
-            this.bt_loadData.TabIndex = 9;
-            this.bt_loadData.Text = "导入数据";
-            this.bt_loadData.UseVisualStyleBackColor = true;
-            this.bt_loadData.Click += new System.EventHandler(this.bt_loadData_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -324,6 +324,7 @@
             this.Name = "MainForm";
             this.Text = "PSR";
             this.MaximumSizeChanged += new System.EventHandler(this.MainForm_MaximumSizeChanged);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
