@@ -688,6 +688,40 @@ namespace APP
             }
             return null;
         }
+
+        /// <summary>
+        /// realDelete用于判断是否真的从数据库中移除
+        /// true-是的
+        /// false-否
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="realDelete"></param>
+        /// <returns></returns>
+        public static bool DeteleRecord(Record obj,bool realDelete)
+        {
+            try
+            {
+                if (obj != null && obj is Record)
+                {
+                    if (realDelete)
+                        DBHelper.DeleteFromDB(_dbRecord, obj);
+                    else
+                    {
+                        Record[] _temp = new Record[1];
+                        _temp[0] = obj;
+                        obj.IsDelete = true;
+                        obj.Status = RecordStatus.Deleted;
+                        UpdateRecords(_temp);
+                    }
+                    return true;
+                }
+                return false;
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
     public class FactHelper
     {
