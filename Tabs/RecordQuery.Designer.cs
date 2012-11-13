@@ -53,6 +53,9 @@
             this.SUBMITER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.APPROVER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SUBMITTIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.LookintoRecord = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tpReturn = new System.Windows.Forms.TabPage();
             this.tpOK = new System.Windows.Forms.TabPage();
             this.tpSubmit = new System.Windows.Forms.TabPage();
@@ -80,14 +83,20 @@
             this.tabRecord = new System.Windows.Forms.TabControl();
             this.tpDeleted = new System.Windows.Forms.TabPage();
             this.toolTip_zhuanti = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.查看记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.彻底删除记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.彻底删除记录ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.tpQuery.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecord)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.tpSum.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grpFit.SuspendLayout();
             this.grpRecord.SuspendLayout();
             this.tabRecord.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -197,10 +206,10 @@
             this.cmbSubject.Size = new System.Drawing.Size(158, 22);
             this.cmbSubject.TabIndex = 11;
             this.cmbSubject.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cmbSubject_DrawItem);
+            this.cmbSubject.DropDownClosed += new System.EventHandler(this.cmbSubject_DropDownClosed);
+            this.cmbSubject.SelectedValueChanged += new System.EventHandler(this.cmbSubject_SelectedValueChanged);
             this.cmbSubject.Enter += new System.EventHandler(this.cmbSubject_Enter);
             this.cmbSubject.MouseEnter += new System.EventHandler(this.cmbSubject_MouseEnter);
-            this.cmbSubject.SelectedValueChanged += new System.EventHandler(this.cmbSubject_SelectedValueChanged);
-            this.cmbSubject.DropDownClosed += new System.EventHandler(this.cmbSubject_DropDownClosed);
             // 
             // label3
             // 
@@ -222,9 +231,9 @@
             this.cmbElement.Size = new System.Drawing.Size(158, 22);
             this.cmbElement.TabIndex = 9;
             this.cmbElement.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cmbElement_DrawItem);
-            this.cmbElement.MouseEnter += new System.EventHandler(this.cmbElement_MouseEnter);
-            this.cmbElement.SelectedValueChanged += new System.EventHandler(this.cmbElement_SelectedValueChanged);
             this.cmbElement.DropDownClosed += new System.EventHandler(this.cmbElement_DropDownClosed);
+            this.cmbElement.SelectedValueChanged += new System.EventHandler(this.cmbElement_SelectedValueChanged);
+            this.cmbElement.MouseEnter += new System.EventHandler(this.cmbElement_MouseEnter);
             // 
             // label2
             // 
@@ -246,9 +255,9 @@
             this.cmbFactory.Size = new System.Drawing.Size(158, 22);
             this.cmbFactory.TabIndex = 7;
             this.cmbFactory.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cmbFactory_DrawItem);
-            this.cmbFactory.MouseEnter += new System.EventHandler(this.cmbFactory_MouseEnter);
-            this.cmbFactory.SelectedValueChanged += new System.EventHandler(this.cmbFactory_SelectedValueChanged);
             this.cmbFactory.DropDownClosed += new System.EventHandler(this.cmbFactory_DropDownClosed);
+            this.cmbFactory.SelectedValueChanged += new System.EventHandler(this.cmbFactory_SelectedValueChanged);
+            this.cmbFactory.MouseEnter += new System.EventHandler(this.cmbFactory_MouseEnter);
             // 
             // label1
             // 
@@ -291,8 +300,9 @@
             this.dgvRecord.Size = new System.Drawing.Size(728, 292);
             this.dgvRecord.TabIndex = 1;
             this.dgvRecord.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecord_CellDoubleClick);
-            this.dgvRecord.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvRecord_RowPostPaint);
+            this.dgvRecord.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRecord_CellMouseClick);
             this.dgvRecord.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvRecord_DataBindingComplete);
+            this.dgvRecord.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvRecord_RowPostPaint);
             // 
             // Select
             // 
@@ -353,6 +363,28 @@
             this.SUBMITTIME.Name = "SUBMITTIME";
             this.SUBMITTIME.ReadOnly = true;
             this.SUBMITTIME.Width = 150;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LookintoRecord,
+            this.删除记录ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+            // 
+            // LookintoRecord
+            // 
+            this.LookintoRecord.Name = "LookintoRecord";
+            this.LookintoRecord.Size = new System.Drawing.Size(124, 22);
+            this.LookintoRecord.Text = "查看记录";
+            this.LookintoRecord.Click += new System.EventHandler(this.彻底删除ToolStripMenuItem_Click);
+            // 
+            // 删除记录ToolStripMenuItem
+            // 
+            this.删除记录ToolStripMenuItem.Name = "删除记录ToolStripMenuItem";
+            this.删除记录ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除记录ToolStripMenuItem.Text = "删除记录";
+            this.删除记录ToolStripMenuItem.Click += new System.EventHandler(this.删除记录ToolStripMenuItem_Click);
             // 
             // tpReturn
             // 
@@ -623,6 +655,36 @@
             // 
             this.toolTip_zhuanti.ShowAlways = true;
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查看记录ToolStripMenuItem,
+            this.彻底删除记录ToolStripMenuItem,
+            this.彻底删除记录ToolStripMenuItem1});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(149, 70);
+            // 
+            // 查看记录ToolStripMenuItem
+            // 
+            this.查看记录ToolStripMenuItem.Name = "查看记录ToolStripMenuItem";
+            this.查看记录ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.查看记录ToolStripMenuItem.Text = "查看记录";
+            this.查看记录ToolStripMenuItem.Click += new System.EventHandler(this.查看记录ToolStripMenuItem_Click);
+            // 
+            // 彻底删除记录ToolStripMenuItem
+            // 
+            this.彻底删除记录ToolStripMenuItem.Name = "彻底删除记录ToolStripMenuItem";
+            this.彻底删除记录ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.彻底删除记录ToolStripMenuItem.Text = "恢复记录";
+            this.彻底删除记录ToolStripMenuItem.Click += new System.EventHandler(this.彻底删除记录ToolStripMenuItem_Click);
+            // 
+            // 彻底删除记录ToolStripMenuItem1
+            // 
+            this.彻底删除记录ToolStripMenuItem1.Name = "彻底删除记录ToolStripMenuItem1";
+            this.彻底删除记录ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.彻底删除记录ToolStripMenuItem1.Text = "彻底删除记录";
+            this.彻底删除记录ToolStripMenuItem1.Click += new System.EventHandler(this.彻底删除记录ToolStripMenuItem1_Click);
+            // 
             // RecordQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -637,6 +699,7 @@
             this.groupBox1.PerformLayout();
             this.tpQuery.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecord)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tpSum.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -645,6 +708,7 @@
             this.grpRecord.ResumeLayout(false);
             this.grpRecord.PerformLayout();
             this.tabRecord.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -702,5 +766,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBMITER;
         private System.Windows.Forms.DataGridViewTextBoxColumn APPROVER;
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBMITTIME;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem LookintoRecord;
+        private System.Windows.Forms.ToolStripMenuItem 删除记录ToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem 查看记录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 彻底删除记录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 彻底删除记录ToolStripMenuItem1;
     }
 }

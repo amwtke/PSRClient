@@ -55,7 +55,7 @@ namespace APP
                     Record r = (Record)ret[i];
                     if (MainForm.IsMyDB == false)
                     {
-                        if(FelterRecord(r))
+                        if(FelterRecord(r))//过滤左树，IsMyDB是代表是否是自己的数据库文件。
                             retArray.Add(r);
                     }
                     else
@@ -249,6 +249,17 @@ namespace APP
                 tabRecord.SelectedTab.Controls.Add(dgvRecord);
                 this.BindData(dgvRecord, tabRecord.SelectedTab);
             }
+
+            if (tabRecord.SelectedIndex == 5)//删除的记录
+            {
+                dgvRecord.ContextMenuStrip = contextMenuStrip2;
+            }
+            else if (tabRecord.SelectedIndex == 1 || tabRecord.SelectedIndex == 6)
+            {
+                dgvRecord.ContextMenuStrip = contextMenuStrip1;
+            }
+            else
+                dgvRecord.ContextMenuStrip = null;
         }
 
         private void RecordQuery_Load(object sender, EventArgs e)
@@ -633,6 +644,186 @@ namespace APP
             dgvRecord.Columns["ELEMENT"].Visible = false;
         }
 
+        private void dgvRecord_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //no need do something here!@
+        }
+
+        private void 删除记录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvRecord.CurrentRow != null)
+            {
+                string strRecordNO = this.dgvRecord.CurrentRow.Cells["RECORDNO"].Value.ToString();//记录编号
+                if (MessageBox.Show("是否要删除记录" + strRecordNO + "？", "删除记录", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    Record _r = RecordHelper.GetByRecordId(strRecordNO);
+                    if (_r != null)
+                    {
+                        try
+                        {
+                            RecordHelper.DeteleRecord(_r, false);
+                            MessageBox.Show("删除成功！您可以在已删除记录中查到该记录！");
+                            btnQuery.PerformClick();
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show("删除失败！\n" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+                MessageBox.Show("没有选中记录！");
+        }
+
+        //查看记录！！！！！！！！
+        private void 彻底删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvRecord.CurrentRow != null)
+            {
+                #region 打开心窗口编辑逻辑
+                string strRecordNO = this.dgvRecord.CurrentRow.Cells["RECORDNO"].Value.ToString();//记录编号
+                string strSubmiter = this.dgvRecord.CurrentRow.Cells["SUBMITER"].Value.ToString();//提交人
+                string strStatus = this.dgvRecord.CurrentRow.Cells["STATUS"].Value.ToString();//状态
+                bool blView = false;//是否查看
+                bool blApprove = false;//是否已审批
+                bool blApproveEdit = false;//是否审批操作
+                if (strSubmiter != UserSession.LoginUser.Name || strStatus == RecordStatus.HoldForApprove)
+                {
+                    blApprove = true;
+                    blView = true;
+                }
+                if (UserSession.LoginUser.Role == Roles.RoleFactorTeamManager || UserSession.LoginUser.Role == Roles.Admin || MainForm.IsMyDB == false)
+                {
+                    DashBoard _board = new DashBoard(strRecordNO);
+                    _board.WindowState = FormWindowState.Maximized;
+                    _board.ShowDialog(this);
+                }
+                else
+                {
+                    if (strStatus == RecordStatus.Inputed || strStatus == RecordStatus.ReturnBack)
+                    {
+                        APP.Tab1_AddAffectForm formAddAffect = new Tab1_AddAffectForm(strRecordNO, blApprove, blView, blApproveEdit);
+                        formAddAffect.WindowState = FormWindowState.Maximized;
+                        formAddAffect.ShowDialog(this);
+                    }
+                    else
+                    {
+                        DashBoard _board = new DashBoard(strRecordNO);
+                        _board.WindowState = FormWindowState.Maximized;
+                        _board.ShowDialog(this);
+                    }
+                }
+                this.btnQuery_Click(sender, e);
+                #endregion
+            }
+            else
+                MessageBox.Show("没有选中记录！");
+        }
+
+        private void 查看记录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvRecord.CurrentRow != null)
+            {
+                #region 打开心窗口编辑逻辑
+                string strRecordNO = this.dgvRecord.CurrentRow.Cells["RECORDNO"].Value.ToString();//记录编号
+                string strSubmiter = this.dgvRecord.CurrentRow.Cells["SUBMITER"].Value.ToString();//提交人
+                string strStatus = this.dgvRecord.CurrentRow.Cells["STATUS"].Value.ToString();//状态
+                bool blView = false;//是否查看
+                bool blApprove = false;//是否已审批
+                bool blApproveEdit = false;//是否审批操作
+                if (strSubmiter != UserSession.LoginUser.Name || strStatus == RecordStatus.HoldForApprove)
+                {
+                    blApprove = true;
+                    blView = true;
+                }
+                if (UserSession.LoginUser.Role == Roles.RoleFactorTeamManager || UserSession.LoginUser.Role == Roles.Admin || MainForm.IsMyDB == false)
+                {
+                    DashBoard _board = new DashBoard(strRecordNO);
+                    _board.WindowState = FormWindowState.Maximized;
+                    _board.ShowDialog(this);
+                }
+                else
+                {
+                    if (strStatus == RecordStatus.Inputed || strStatus == RecordStatus.ReturnBack)
+                    {
+                        APP.Tab1_AddAffectForm formAddAffect = new Tab1_AddAffectForm(strRecordNO, blApprove, blView, blApproveEdit);
+                        formAddAffect.WindowState = FormWindowState.Maximized;
+                        formAddAffect.ShowDialog(this);
+                    }
+                    else
+                    {
+                        DashBoard _board = new DashBoard(strRecordNO);
+                        _board.WindowState = FormWindowState.Maximized;
+                        _board.ShowDialog(this);
+                    }
+                }
+                this.btnQuery_Click(sender, e);
+                #endregion
+            }
+            else
+                MessageBox.Show("没有选中记录！");
+        }
+
+        //恢复记录
+        private void 彻底删除记录ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvRecord.CurrentRow != null)
+            {
+                string strRecordNO = this.dgvRecord.CurrentRow.Cells["RECORDNO"].Value.ToString();//记录编号
+                if (MessageBox.Show("是否要恢复删除记录：" + strRecordNO + "？", "恢复记录", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    Record _r = RecordHelper.GetByRecordId(strRecordNO);
+                    if (_r != null)
+                    {
+                        try
+                        {
+                            _r.Status = RecordStatus.Inputed;
+                            _r.IsDelete = false;
+
+                            Record[] temp =new Record[1];
+                            temp[0] = _r;
+                            RecordHelper.UpdateRecords(temp);
+                            MessageBox.Show("恢复成功!");
+                            btnQuery.PerformClick();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("恢复失败！\n" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+                MessageBox.Show("没有选中记录！"); 
+        }
+
+        private void 彻底删除记录ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (dgvRecord.CurrentRow != null)
+            {
+                string strRecordNO = this.dgvRecord.CurrentRow.Cells["RECORDNO"].Value.ToString();//记录编号
+                if (MessageBox.Show("是否要彻底删除记录：" + strRecordNO + "？删除以后记录将永久删除！", "删除记录", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    Record _r = RecordHelper.GetByRecordId(strRecordNO);
+                    if (_r != null)
+                    {
+                        try
+                        {
+                            RecordHelper.DeteleRecord(_r, true);
+                            MessageBox.Show("删除成功!");
+                            btnQuery.PerformClick();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("删除失败！\n" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+                MessageBox.Show("没有选中记录！");
+        }
     }
 
     public class RetrieveRecordPredicate : Predicate
@@ -650,8 +841,8 @@ namespace APP
         public bool Match(Record record)
         {
             flag = true;
-            if (record.IsDelete == true)
-                return false;
+            //if (record.IsDelete == true)
+            //    return false;
             if (!string.IsNullOrEmpty(_facility))
             {
                 flag = _facility.Equals(record.Facility);
