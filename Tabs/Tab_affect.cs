@@ -1501,7 +1501,7 @@ namespace APP
         }
         private void Tab1_AddAffectForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_record.Status == RecordStatus.Inputed)
+            if (_record.Status == RecordStatus.Inputed||_record.Status == APP.RecordStatus.ReturnBack)
             {
                 if (MessageBox.Show("是否要退出？", "关闭", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
