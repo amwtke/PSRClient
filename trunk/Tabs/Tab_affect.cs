@@ -1102,6 +1102,24 @@ namespace APP
 
         private void Bt_close_Click(object sender, EventArgs e)
         {
+
+            //if (MessageBox.Show("是否要退出？", "关闭", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            //{
+                //if (string.IsNullOrEmpty(_record.ID))
+                //{
+                //    this.Close();
+                //}
+                //else if (MessageBox.Show("保存？", "是否保存", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                //{
+                //    Save(RecordStatus.Inputed, this.Bt_comfirmRecord);
+                //    System.Threading.Thread.Sleep(500);
+                //    //确定退出行
+                //    this.Close();
+                //}
+                //else
+                //    this.Close();
+            //}
+            _record.Status = RecordStatus.Inputed;
             this.Close();
         }
 
@@ -1358,6 +1376,12 @@ namespace APP
                     if (((Button)sender).Name.Equals("BT_SubmitRecord"))
                     {
                         this.Close();
+                    }
+                    if(((Button)sender).Name.Equals("Bt_comfirmRecord"))
+                    {
+                        comboBox_facility.Enabled = false;
+                        comboBox_yaoshu.Enabled = false;
+                        comboBox_zhuanti.Enabled = false;
                     }
                 }
                 else

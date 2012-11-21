@@ -640,29 +640,40 @@ namespace APP
             }
         }
 
-        public static int GetRecordCount(string inputUser,string facility,string yaosubianhao,string zhuantibianhao)
+        public static int GetRecordCount(string inputUser, string facility, string yaosubianhao, string zhuantibianhao)
         {
             Record r = new Record();
             r.InputUser = inputUser;
             r.Facility = facility;
             r.YaoSuBianHao = yaosubianhao;
             r.ZhuangTiBianHao = zhuantibianhao;
-
-            if (r != null)
+            try
             {
-                //IObjectContainer _db = null;
-                try
+                IObjectSet sets = _dbRecord.QueryByExample(r);
+                int retNubmer = -1;
+
+                if (sets.Count > 0)
                 {
-                    //_db = DBHelper.InitDB4O(typeof(Record));
-                    IObjectSet sets = _dbRecord.QueryByExample(r);
+                    Record _lastestOne = (Record)sets[0];
+                    for (int i = 1; i < sets.Count; i++)
+                    {
+                        Record _currentOne = (Record)sets[i];
+                        if (_lastestOne.InputTime < _currentOne.InputTime)
+                        {
+                            _lastestOne = _currentOne;
+                        }
+                    }
+                    string _No = _lastestOne.ID.Substring(_lastestOne.ID.Length - 3, 3);
+                    retNubmer = int.Parse(_No);
+                    return retNubmer;
+                }
+                else
                     return sets.Count;
-                }
-                catch (System.Exception ex)
-                {
-                    throw ex;
-                }
             }
-            return 0;
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public static Record[] GetAll()
