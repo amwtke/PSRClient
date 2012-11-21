@@ -264,16 +264,6 @@ namespace APP
 
         private void RecordQuery_Load(object sender, EventArgs e)
         {
-            comboBox_fhpc.SelectedIndex = 0;
-            Range range = new Range();
-            range.BindCombobox(cmbFactory, FacilityName.dictFactory);
-            //range.BindCombobox(cmbElement, YaoSuManager.dictElement);
-            //range.BindCombobox(cmbSubject, ZhuanTiManager.dictSubject);
-            range.SetRange(this,cmbFactory, cmbElement, cmbSubject);
-            this.SetDtRecordColumn();
-
-            isShown = true;
-
             if (_UserRootLeftTree == null)
             {
                 try
@@ -291,6 +281,18 @@ namespace APP
                     throw new Exception("无用户左树！");
                 }
             }
+
+            comboBox_fhpc.SelectedIndex = 0;
+            Range range = new Range();
+            range.BindCombobox(cmbFactory, GetFacilityFromRootLeftTree());//FacilityName.dictFactory);
+            //range.BindCombobox(cmbElement, YaoSuManager.dictElement);
+            //range.BindCombobox(cmbSubject, ZhuanTiManager.dictSubject);
+            range.SetRange(this,cmbFactory, cmbElement, cmbSubject);
+            this.SetDtRecordColumn();
+
+            isShown = true;
+
+            
 
             //检查权限
             bt_export.Visible = Authorization.IsControlVisiable(bt_export.Parent, bt_export, "系统", null);
