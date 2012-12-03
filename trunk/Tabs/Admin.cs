@@ -590,5 +590,28 @@ namespace APP
 
             toolTip1.Show(realName, treeView1);
         }
+
+        private void bt_attachLeftTree_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //saver_auth.root.
+                string Apppath = Application.ExecutablePath;
+                FileInfo _temp = new FileInfo(Apppath);
+                DateTime _appCreationTime = _temp.CreationTime;
+                
+                ((AuthorizationTree)saver_auth.root).AppCreationTime = _appCreationTime;
+                ((RootNode)saver_left.root).AppCreationTime = _appCreationTime;
+                saver_auth.SaveToDb();
+                saver_left.SaveToDb();
+
+                MessageBox.Show(this, "完成绑定，时间戳为：" + ((RootNode)saver_left.root).AppCreationTime.ToString(), "设置成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "绑定失败！信息为\n"+ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
+        }
     }
 }

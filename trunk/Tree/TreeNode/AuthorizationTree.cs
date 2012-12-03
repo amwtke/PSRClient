@@ -14,6 +14,13 @@ namespace APP
         [Key("_role")]
         string _role;
 
+        DateTime _appCreationTime;
+        public DateTime AppCreationTime
+        {
+            get { return _appCreationTime; }
+            set { _appCreationTime = value; }
+        }
+
         public AuthorizationTree()
         {
             _treeName = DBHelper.GetTreeInfoAttribute(typeof(TreeOfForms))[0].TreeName;

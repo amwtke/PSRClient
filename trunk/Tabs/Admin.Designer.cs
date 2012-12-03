@@ -63,6 +63,7 @@
             this.bt_refreshBaseTable = new System.Windows.Forms.Button();
             this.bt_baseData = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.bt_attachLeftTree = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip3.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
@@ -359,11 +360,24 @@
             // 
             this.toolTip1.ForeColor = System.Drawing.SystemColors.HotTrack;
             // 
+            // bt_attachLeftTree
+            // 
+            this.bt_attachLeftTree.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bt_attachLeftTree.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.bt_attachLeftTree.Location = new System.Drawing.Point(856, 274);
+            this.bt_attachLeftTree.Name = "bt_attachLeftTree";
+            this.bt_attachLeftTree.Size = new System.Drawing.Size(75, 43);
+            this.bt_attachLeftTree.TabIndex = 15;
+            this.bt_attachLeftTree.Text = "绑定授权文件";
+            this.bt_attachLeftTree.UseVisualStyleBackColor = true;
+            this.bt_attachLeftTree.Click += new System.EventHandler(this.bt_attachLeftTree_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 439);
+            this.Controls.Add(this.bt_attachLeftTree);
             this.Controls.Add(this.bt_baseData);
             this.Controls.Add(this.bt_refreshBaseTable);
             this.Controls.Add(this.treeView1);
@@ -423,5 +437,6 @@
         private System.Windows.Forms.Button bt_refreshBaseTable;
         private System.Windows.Forms.Button bt_baseData;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button bt_attachLeftTree;
     }
 }

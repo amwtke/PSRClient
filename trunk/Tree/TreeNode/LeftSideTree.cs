@@ -21,6 +21,13 @@ namespace APP
         [Key("_rootValue")]
         string _rootValue;
 
+        DateTime _appCreationTime;
+        public DateTime AppCreationTime
+        {
+            get { return _appCreationTime; }
+            set { _appCreationTime = value; }
+        }
+
         bool _CheckBox;
         public RootNode()
         {
