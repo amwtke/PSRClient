@@ -48,7 +48,7 @@ namespace APP
                 //检查文件绑定
                 if (_checkFileAsso && !CheckTimeIfMatch())
                 {
-                    MessageBox.Show("授权文件绑定失败！请到管理员处拷贝最新的App.exe以及系统配置文件！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("授权文件绑定失败！请到管理员处拷贝最新的App.exe以及系统配置文件！\n系统需要时间戳为" + GetTreeDateTime<RootNode>().ToString()+"的执行文件！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     button_OK.Enabled = false;
                 }
                 else
