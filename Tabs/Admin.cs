@@ -615,6 +615,7 @@ namespace APP
                 //
 
                 MessageBox.Show(this, "完成绑定，时间戳为：" + ((RootNode)saver_left.root).AppCreationTime.ToString()+"\n 新的App文件名为：\n"+_destOne.FullName, "设置成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                ((Button)this.Parent.Parent.Controls["MainForm_flowLayoutPanel"].Controls["BT_SysConfig"]).PerformClick();
             }
             catch (Exception ex)
             {
