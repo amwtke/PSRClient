@@ -595,22 +595,30 @@ namespace APP
         {
             try
             {
-                //saver_auth.root.
-                string Apppath = Application.ExecutablePath;
-                FileInfo _temp = new FileInfo(Apppath);
-                DateTime _appCreationTime = _temp.CreationTime;
-                
+                DateTime _dtNow = DateTime.Now;
+                DateTime _appCreationTime = _dtNow;//_temp.CreationTime;
+                TreeNodeHelper.RefreshTreeView<RootNode, Node>(treeView1, ref saver_left, "admin");
+                TreeNodeHelper.RefreshTreeView<AuthorizationTree, AuthorizationNode>(treeView3, ref saver_auth, "admin");
+
                 ((AuthorizationTree)saver_auth.root).AppCreationTime = _appCreationTime;
                 ((RootNode)saver_left.root).AppCreationTime = _appCreationTime;
                 saver_auth.SaveToDb();
                 saver_left.SaveToDb();
 
-                MessageBox.Show(this, "完成绑定，时间戳为：" + ((RootNode)saver_left.root).AppCreationTime.ToString(), "设置成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                //拷贝到新地方
+                string Apppath = Application.ExecutablePath;
+                FileInfo _originOne = new FileInfo(Apppath);
+                string _destFileName = CommonHelper.GetAssemblyPath() + @"app" + _dtNow.Year.ToString()+_dtNow.Month.ToString()+_dtNow.Day.ToString() +"-"+_dtNow.Hour.ToString() +_dtNow.Minute.ToString()+".exe";
+                _originOne.CopyTo(_destFileName,true);
+                FileInfo _destOne = new FileInfo(_destFileName);
+                _destOne.CreationTime = _dtNow;
+                //
+
+                MessageBox.Show(this, "完成绑定，时间戳为：" + ((RootNode)saver_left.root).AppCreationTime.ToString()+"\n 新的App文件名为：\n"+_destOne.FullName, "设置成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(this, "绑定失败！信息为\n"+ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw ex;
             }
         }
     }
