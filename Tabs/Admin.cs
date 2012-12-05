@@ -596,12 +596,12 @@ namespace APP
             try
             {
                 DateTime _dtNow = DateTime.Now;
-                DateTime _appCreationTime = _dtNow;//_temp.CreationTime;
+                DateTime _appLastWriteTime = _dtNow;//_temp.CreationTime;
                 TreeNodeHelper.RefreshTreeView<RootNode, Node>(treeView1, ref saver_left, "admin");
                 TreeNodeHelper.RefreshTreeView<AuthorizationTree, AuthorizationNode>(treeView3, ref saver_auth, "admin");
 
-                ((AuthorizationTree)saver_auth.root).AppCreationTime = _appCreationTime;
-                ((RootNode)saver_left.root).AppCreationTime = _appCreationTime;
+                ((AuthorizationTree)saver_auth.root).AppLastWriteTime = _appLastWriteTime;
+                ((RootNode)saver_left.root).AppLastWriteTime = _appLastWriteTime;
                 saver_auth.SaveToDb();
                 saver_left.SaveToDb();
 
@@ -611,10 +611,10 @@ namespace APP
                 string _destFileName = CommonHelper.GetAssemblyPath() + @"app" + _dtNow.Year.ToString()+_dtNow.Month.ToString()+_dtNow.Day.ToString() +"-"+_dtNow.Hour.ToString() +_dtNow.Minute.ToString()+".exe";
                 _originOne.CopyTo(_destFileName,true);
                 FileInfo _destOne = new FileInfo(_destFileName);
-                _destOne.CreationTime = _dtNow;
+                _destOne.LastWriteTime = _dtNow;
                 //
 
-                MessageBox.Show(this, "完成绑定，时间戳为：" + ((RootNode)saver_left.root).AppCreationTime.ToString()+"\n 新的App文件名为：\n"+_destOne.FullName, "设置成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(this, "完成绑定，时间戳为：" + ((RootNode)saver_left.root).AppLastWriteTime.ToString()+"\n 新的App文件名为：\n"+_destOne.FullName, "设置成功", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 ((Button)this.Parent.Parent.Controls["MainForm_flowLayoutPanel"].Controls["BT_SysConfig"]).PerformClick();
             }
             catch (Exception ex)

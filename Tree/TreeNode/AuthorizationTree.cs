@@ -15,7 +15,7 @@ namespace APP
         string _role;
 
         DateTime _appCreationTime;
-        public DateTime AppCreationTime
+        public DateTime AppLastWriteTime
         {
             get { return _appCreationTime; }
             set { _appCreationTime = value; }
