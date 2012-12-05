@@ -22,7 +22,7 @@ namespace APP
         string _rootValue;
 
         DateTime _appCreationTime;
-        public DateTime AppCreationTime
+        public DateTime AppLastWriteTime
         {
             get { return _appCreationTime; }
             set { _appCreationTime = value; }

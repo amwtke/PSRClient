@@ -49,7 +49,7 @@ namespace APP
                 if (_checkFileAsso && !CheckTimeIfMatch())
                 {
                     MessageBox.Show("授权文件绑定失败！请到管理员处拷贝最新的App.exe以及系统配置文件！\n系统需要时间戳为" + GetTreeDateTime<RootNode>().ToString()+"的执行文件！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    button_OK.Enabled = false;
+                    //button_OK.Enabled = false;
                 }
                 else
                 {
@@ -119,12 +119,12 @@ namespace APP
                     if (_root is AuthorizationTree)
                     {
                         AuthorizationTree _temp = _root as AuthorizationTree;
-                        return _temp.AppCreationTime;
+                        return _temp.AppLastWriteTime;
                     }
                     else if (_root is RootNode)
                     {
                         RootNode _temp = _root as RootNode;
-                        return _temp.AppCreationTime;
+                        return _temp.AppLastWriteTime;
                     }
                     else
                         return null;
@@ -144,7 +144,7 @@ namespace APP
         private DateTime GetAppDateTime()
         {
             System.IO.FileInfo _fileInfo = new System.IO.FileInfo(Application.ExecutablePath);
-            return _fileInfo.CreationTime;
+            return _fileInfo.LastWriteTime;
         }
 
         private bool CheckTimeIfMatch()
