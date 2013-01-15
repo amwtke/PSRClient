@@ -153,8 +153,16 @@ namespace APP
             if (_leftTreeTime == null) return false;
             else
             {
-                if (_leftTreeTime == GetAppDateTime())
+                DateTime? _localFileTime = GetAppDateTime();
+                if (_leftTreeTime.Value.Year == _localFileTime.Value.Year
+                    && _leftTreeTime.Value.Month == _localFileTime.Value.Month
+                    && _leftTreeTime.Value.Day == _localFileTime.Value.Day
+                    && _leftTreeTime.Value.Hour == _localFileTime.Value.Hour
+                    && _leftTreeTime.Value.Minute == _localFileTime.Value.Minute)
+                {
+                    //MessageBox.Show(_localFileTime.Value.Hour.ToString());
                     return true;
+                }
             }
             return false;
         }
