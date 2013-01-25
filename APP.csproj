@@ -67,6 +67,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -221,6 +222,7 @@
     <Compile Include="Tree\NodesActions\TabAffectNode.cs" />
     <Compile Include="Tree\Helper\TreeNodeHelper.cs" />
     <Compile Include="Tree\TreeNode\LeftSideTree.cs" />
+    <Compile Include="WS\UpLoadDownLoadRecordService.cs" />
     <EmbeddedResource Include="Authorization\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
       <SubType>Designer</SubType>
